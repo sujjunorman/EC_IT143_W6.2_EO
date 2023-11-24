@@ -1,0 +1,34 @@
+How can I select all columns from the Product table in the AdventureWorks database?
+	SELECT * FROM Production.Product;
+
+How can I find all the distinct colors from the Product table?
+	SELECT DISTINCT Color FROM Production.Product;
+
+How can I count the number of products in each category?
+	SELECT ProductCategoryID, COUNT(*) 
+	FROM Production.Product 
+	GROUP BY ProductCategoryID;
+
+How can I find the average list price for each product category?
+	SELECT ProductCategoryID, AVG(ListPrice) 
+	FROM Production.Product 
+	GROUP BY ProductCategoryID;
+
+How can I find the most expensive product in each category?
+	SELECT ProductCategoryID, MAX(ListPrice) 
+	FROM Production.Product 
+	GROUP BY ProductCategoryID;
+
+How can I find the total quantity of all products sold?
+	SELECT SUM(OrderQty) 
+	FROM Sales.SalesOrderDetail;
+
+How can I find the total sales for each product?
+	SELECT ProductID, SUM(LineTotal) 
+	FROM Sales.SalesOrderDetail 
+	GROUP BY ProductID;
+
+How can I find the total sales for each year?
+	SELECT YEAR(OrderDate), SUM(TotalDue) 
+	FROM Sales.SalesOrderHeader 
+	GROUP BY YEAR(OrderDate);
